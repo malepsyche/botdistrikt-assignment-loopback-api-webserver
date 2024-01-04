@@ -1,13 +1,13 @@
-This is the `webserver` repository for botdistrikt interview assignment
+## `webserver` repository for botdistrikt interview assignment
 
-Deployment stack
-##Backend
+## Deployment stack
+#### Backend
 `Webserver`: AWS EC2
 Database server: postgreSQL Amazon RDS
 Environment management: AWS Secrets Manager
 
 
-##Setup of AWS EC2 Webserver
+## Setup of AWS EC2 Webserver
 <br>
 Launch EC2 instance with Amazon Linux OS
 ![Example Images](images/1.png)
