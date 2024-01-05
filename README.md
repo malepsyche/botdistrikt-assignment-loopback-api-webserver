@@ -47,15 +47,18 @@ Clone botdistrikt-assignment-loopback-api-webserver from github into the EC2 web
  -->
 
 
-## Webserver Repository for Botdistrikt Interview Assignment
+## Botdistrikt Interview Assignment
 
-### Deployment Stack
-#### Backend
-- **Webserver**: AWS EC2
-- **Database server**: PostgreSQL Amazon RDS
+## Prerequisites
+- AWS Account
+
+#### Server (AWS EC2)
+- **Frontend**: EmberJS
+- **Backend API**: Loopback
+- **Database**: PostgreSQL
 - **Environment management**: AWS Secrets Manager
 
-### Setup of AWS EC2 Webserver
+### Setup of AWS EC2 instance
 
 1. Launch EC2 instance with Amazon Linux OS  
    ![EC2 Instance Launch](images/1.png)
