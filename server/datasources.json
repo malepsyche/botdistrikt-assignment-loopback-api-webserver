@@ -1,0 +1,7 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "postgresql",
+    "url": "postgres://username:password@localhost/database"
+  }
+}
