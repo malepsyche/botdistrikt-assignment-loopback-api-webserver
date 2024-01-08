@@ -50,21 +50,27 @@ Clone botdistrikt-assignment-loopback-api-webserver from github into the EC2 web
 ## Botdistrikt Interview Assignment
 <br>
 
+
 ## Prerequisites
 - AWS Account
 <br>
+
 
 ## Tech Stack
 - **Server**: AWS EC2
 - **Frontend**: EmberJS
 - **Backend API**: Loopback
 - **Database**: PostgreSQL
-- **Container**: Docker
-
-## Containers
-- **Frontend and Backend App**
-- **PostgreSQL Database**
+- **Containerisation**: Docker
 <br>
+
+
+## Docker Containers
+- **Encapsulate the app and database seperately**
+- **Container 1: Frontend and Backend App**
+- **Container 2: PostgreSQL Database**
+<br>
+
 
 ## Setup of AWS EC2 server instance
 
@@ -89,21 +95,30 @@ Clone botdistrikt-assignment-loopback-api-webserver from github into the EC2 web
 <br> 
 
 #### 6. Set up EC2 instance on AWS  
-Connect to EC2 instance via `ssh -i botdistrikt-assignment-loopback-api-webserver.pem ec2-user@ec2-54-254-56-53.ap-southeast-1.compute.amazonaws.com` or set up a custom ssh config file with the ssh extension on vscode.
+Connect to EC2 instance via 
+```zsh 
+ssh -i botdistrikt-assignment-loopback-api-webserver.pem ec2-user@ec2-54-254-56-53.ap-southeast-1.compute.amazonaws.com
+``` 
+or set up a custom ssh config file with the ssh extension on vscode.
 <br> 
 
 #### 7. Install git  
-`sudo yum install git -y`
+```zsh 
+sudo yum install git -y
+```
 <br> 
 
 #### 8. Go to development environment  
-`cd /home/ec2-user/`
+```zsh 
+cd /home/ec2-user/
+```
 <br> 
 
 #### 9. Clone botdistrikt-assignment-loopback-api-webserver from github into the EC2 webserver dev env  
-`git clone https://github.com/malepsyche/botdistrikt-assignment-loopback-api-webserver.git`
+```zsh 
+git clone https://github.com/malepsyche/botdistrikt-assignment-loopback-api-webserver.git
+```
 <br> 
-<br>
 
 
 
@@ -129,36 +144,53 @@ npm install -g loopback-cli
 
 
 ## Docker Installation
-Install Docker
+- **Install Docker**
+```zsh
 sudo yum install docker -y
+```
 
-Start Docker service
+- **Start Docker service**
+```zsh
 sudo systemctl start docker
+```
 
-Enable Docker to start on boot
+- **Enable Docker to start on boot**
+```zsh
 sudo systemctl enable docker
+```
 
-Verify Docker Installation
+- **Verify Docker Installation**
+```zsh
 docker --version
+```
+<br>
 
 
 
 ## Docker compose Installation
-Download the Docker Compose binary
+- **Download the Docker Compose binary**
+```zsh
 sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
 
-Apply executable permissions to the binary:
+- **Apply executable permissions to the binary:**
+```zsh
 sudo chmod +x /usr/local/bin/docker-compose
+```
 
-To verify that Docker Compose is installed correctly, run:
+- **To verify that Docker Compose is installed correctly, run:**
+```zsh
 docker-compose --version
+```
 <br>
-<br>
+
 
 
 ## Setup Environment Credentials for Dockerized PostgreSQL database image
-In /home/ec2-user/botdistrikt-assignment-task-manager-app:
-`nano .env`
+- **Create empty .env file:**
+```zsh
+nano /home/ec2-user/botdistrikt-assignment-task-manager-app/.env
+```
 ```zsh
 # Replace these with your own preferred credentials if necessary
 DB_USER=myuser
@@ -166,12 +198,12 @@ DB_PASS=mypassword
 DB_NAME=mydatabase
 ```
 <br>
-<br>
+
 
 
 ## Build and run the docker containers
 `sudo docker-compose up --build``
-
+<br>
 
 
 
