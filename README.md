@@ -54,14 +54,19 @@ Clone botdistrikt-assignment-loopback-api-webserver from github into the EC2 web
 - AWS Account
 <br>
 
-## Server (AWS EC2)
+## Tech Stack
+- **Server**: AWS EC2
 - **Frontend**: EmberJS
 - **Backend API**: Loopback
 - **Database**: PostgreSQL
-- **Environment management**: AWS Secrets Manager
+- **Container**: Docker
+
+## Containers
+- **Frontend and Backend App**
+- **PostgreSQL Database**
 <br>
 
-## Setup of AWS EC2 instance
+## Setup of AWS EC2 server instance
 
 #### 1. Launch EC2 instance with Amazon Linux OS  
 ![EC2 Instance Launch](images/1.png)
@@ -100,7 +105,9 @@ Connect to EC2 instance via `ssh -i botdistrikt-assignment-loopback-api-webserve
 <br> 
 <br>
 
-## NodeJS Installation into server
+
+
+## NodeJS and Loopback Installation into server
 
 #### 1. Install node version manager (nvm)
 - **Version manager for nodejs**
@@ -120,44 +127,86 @@ npm install -g loopback-cli
 <br>
 
 
-## PostgreSQL Database installation into server
+
+## Docker Installation
+Install Docker
+sudo yum install docker -y
+
+Start Docker service
+sudo systemctl start docker
+
+Enable Docker to start on boot
+sudo systemctl enable docker
+
+Verify Docker Installation
+docker --version
+
+
+
+## Docker compose Installation
+Download the Docker Compose binary
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+Apply executable permissions to the binary:
+sudo chmod +x /usr/local/bin/docker-compose
+
+To verify that Docker Compose is installed correctly, run:
+docker-compose --version
+<br>
+<br>
+
+
+## Setup Environment Credentials for Dockerized PostgreSQL database image
+In /home/ec2-user/botdistrikt-assignment-task-manager-app:
+`nano .env`
+```zsh
+# Replace these with your own preferred credentials if necessary
+DB_USER=myuser
+DB_PASS=mypassword
+DB_NAME=mydatabase
+```
+<br>
+<br>
+
+
+## Build and run the docker containers
+`sudo docker-compose up --build``
+
+
+
+
+<!-- ## PostgreSQL Database installation into server
 
 #### Update Your Package Repository:
-- ** `sudo yum update -y`
+- **`sudo yum update -y`**
 
 #### Find the available PostgreSQL packages
-- ** `sudo yum list available | grep postgres`
-- ** ```zsh
-[ec2-user@ip-172-31-29-227 botdistrikt-assignment-task-manager-app]$ sudo yum list available | grep postgres
-<br>
-collectd-postgresql.x86_64                                        5.12.0-16.amzn2023.0.4                      amazonlinux     
-<br>
-postgresql-odbc.x86_64                                            13.01.0000-5.amzn2023.0.1                   amazonlinux     
-<br>
-postgresql-odbc-tests.x86_64                                      13.01.0000-5.amzn2023.0.1                   amazonlinux     
-<br>
-postgresql15.x86_64                                               15.4-1.amzn2023.0.1                         amazonlinux     
-<br>
-postgresql15-contrib.x86_64                                       15.4-1.amzn2023.0.1                         amazonlinux     
-<br>
-postgresql15-docs.x86_64                                          15.4-1.amzn2023.0.1                         amazonlinux     
-postgresql15-llvmjit.x86_64                                       15.4-1.amzn2023.0.1                         amazonlinux     
-postgresql15-plperl.x86_64                                        15.4-1.amzn2023.0.1                         amazonlinux     
-postgresql15-plpython3.x86_64                                     15.4-1.amzn2023.0.1                         amazonlinux     
-postgresql15-pltcl.x86_64                                         15.4-1.amzn2023.0.1                         amazonlinux     
-postgresql15-private-devel.x86_64                                 15.4-1.amzn2023.0.1                         amazonlinux     
-postgresql15-private-libs.x86_64                                  15.4-1.amzn2023.0.1                         amazonlinux     
-postgresql15-server.x86_64                                        15.4-1.amzn2023.0.1                         amazonlinux     
-postgresql15-server-devel.x86_64                                  15.4-1.amzn2023.0.1                         amazonlinux     
-postgresql15-static.x86_64                                        15.4-1.amzn2023.0.1                         amazonlinux     
-postgresql15-test.x86_64                                          15.4-1.amzn2023.0.1                         amazonlinux     
-postgresql15-test-rpm-macros.noarch                               15.4-1.amzn2023.0.1                         amazonlinux     
-postgresql15-upgrade.x86_64                                       15.4-1.amzn2023.0.1                         amazonlinux     
-postgresql15-upgrade-devel.x86_64     
-```
+- **`sudo yum list available | grep postgres`**
+- **![Step Image](images/postgre-list.png)**
 <br>
 
 #### Install the Identified PostgreSQL Package
-- ** Once you've identified the correct package name, you can install PostgreSQL like so (replace XX with the actual version number found):
-- ** `sudo yum install -y postgresqlXX-server`
-- ** We will be using v15: `sudo yum install -y postgresql15 postgresql15-server`
+- **Once you've identified the correct package name, you can install PostgreSQL like so (replace XX with the actual version number found):**
+- **`sudo yum install -y postgresqlXX-server`**
+- **We will be using v15:`sudo yum install -y postgresql15 postgresql15-server`**
+
+#### Initialise Database:
+sudo /usr/bin/postgresql-setup --initdb
+
+#### Start and Enable the PostgreSQL Service
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+
+#### Enter postgreSQL database account
+sudo -u postgres -i
+
+#### Access the postgreSQL prompt
+psql
+
+#### Set a password for the PostgreSQL user (replace newpassword with a strong password):
+\password postgres
+
+
+
+
+ -->

@@ -2,6 +2,11 @@
   "db": {
     "name": "db",
     "connector": "postgresql",
-    "url": "postgres://username:password@localhost/database"
+    "url": "${DATABASE_URL}",
+    "host": "",
+    "port": 0,
+    "user": "",
+    "password": "",
+    "database": ""
   }
 }
