@@ -122,6 +122,14 @@ git clone https://github.com/malepsyche/botdistrikt-assignment-loopback-api-webs
 
 
 
+
+## Setup CloudWatch Agent (Optional)
+- [Setup Amazon CloudWatch Agent](CLOUDWATCH_SETUP.md)
+<br>
+
+
+
+
 ## NodeJS and Loopback Installation into server
 
 #### 1. Install node version manager (nvm)
@@ -201,8 +209,47 @@ DB_NAME=mydatabase
 
 
 
+## Frontend Setup with EmberJS
+- **Navigate to application root directory**
+```zsh
+cd /home/ec2-user/botdistrikt-assignment-task-manager-app
+```
+- **Install Ember CLI into server**
+```zsh
+npm install -g ember-cli
+```
+- **Generate a new Ember application**
+```zsh
+ember new my-ember-app
+```
+- **Navigate into the new app directory**
+```zsh
+cd my-ember-app
+```
+- **Implement User Interfaces**
+```zsh
+ember generate component task-list
+ember generate component author-list
+```
+- ****
+```zsh
+```
+- ****
+```zsh
+```
+- ****
+```zsh
+```
+- ****
+```zsh
+```
+
+
+
 ## Build and run the docker containers
-`sudo docker-compose up --build``
+```zsh
+sudo docker-compose up --build
+```
 <br>
 
 
