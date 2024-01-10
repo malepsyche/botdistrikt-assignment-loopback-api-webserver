@@ -116,7 +116,7 @@ cd /home/ec2-user/
 
 #### 9. Clone botdistrikt-assignment-loopback-api-webserver from github into the EC2 webserver dev env  
 ```zsh 
-git clone https://github.com/malepsyche/botdistrikt-assignment-loopback-api-webserver.git
+git clone https://github.com/malepsyche/botdistrikt-assignment-task-manager-app.git
 ```
 <br> 
 

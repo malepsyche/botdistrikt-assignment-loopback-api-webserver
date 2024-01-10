@@ -76,5 +76,6 @@
   },
   "ember": {
     "edition": "octane"
-  }
+  },
+  "start": "ember serve --proxy http://localhost:3000"
 }
