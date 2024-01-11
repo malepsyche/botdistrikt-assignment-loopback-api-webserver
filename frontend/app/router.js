@@ -10,4 +10,4 @@ Router.map(function () {
   this.route('task-manager');
 });
 
-this.route('task-manager', { path: '/task-manager' });
+
