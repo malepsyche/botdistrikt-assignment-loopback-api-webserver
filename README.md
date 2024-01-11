@@ -61,60 +61,67 @@ Clone botdistrikt-assignment-loopback-api-webserver from github into the EC2 web
 - **Frontend**: EmberJS
 - **Backend API**: Loopback
 - **Database**: PostgreSQL
-- **Containerisation**: Docker
+- **Reverse proxy**: Nginx
+- **Containerisation**: Docker & Docker-compose
 <br>
 
 
 ## Docker Containers
-- **Encapsulate the app and database seperately**
-- **Container 1: Frontend and Backend App**
-- **Container 2: PostgreSQL Database**
+- **Encapsulate the frontend, backend and database seperately**
+- **
+- **Container 1: Frontend**
+- **Container 2: Backend**
+- **Container 3: Database**
+- **Container 4: Nginx**
 <br>
 
 
 ## Setup of AWS EC2 server instance
 
-#### 1. Launch EC2 instance with Amazon Linux OS  
+#### Launch EC2 instance with Amazon Linux OS  
 ![EC2 Instance Launch](images/1.png)
 <br>
 
-#### 2. Create new key-pair
+#### Create new key-pair
 ![Download Key](images/2.png)
 <br> 
 
-#### 3. Name and download private key 'botdistrikt-assignment-loopback-api-webserver.pem' into `/Users/your-username/.ssh` 
+#### Name and download private key 'botdistrikt-assignment-loopback-api-webserver.pem' into `/Users/your-username/.ssh` 
 ![Step Image](images/3.png)
 <br> 
 
-#### 4. 
+#### 
 ![Step Image](images/4.png)
 <br> 
 
-#### 5. 
+#### 
 ![Step Image](images/5.png)
 <br> 
 
-#### 6. Set up EC2 instance on AWS  
-Connect to EC2 instance via 
+#### Setup a new security group to allow inbound traffic to port 80 of EC2 instance
+![Step Image](images/security-group.png)
+<br> 
+
+#### Connect to EC2 instance  
 ```zsh 
 ssh -i botdistrikt-assignment-loopback-api-webserver.pem ec2-user@ec2-54-254-56-53.ap-southeast-1.compute.amazonaws.com
 ``` 
 or set up a custom ssh config file with the ssh extension on vscode.
 <br> 
 
-#### 7. Install git  
+#### Install git  
 ```zsh 
 sudo yum install git -y
 ```
 <br> 
 
-#### 8. Go to development environment  
+#### Go to development environment  
 ```zsh 
 cd /home/ec2-user/
 ```
 <br> 
 
-#### 9. Clone botdistrikt-assignment-loopback-api-webserver from github into the EC2 webserver dev env  
+#### Clone botdistrikt-assignment-loopback-api-webserver from github into the EC2 webserver dev env  
 ```zsh 
 git clone https://github.com/malepsyche/botdistrikt-assignment-task-manager-app.git
 ```
