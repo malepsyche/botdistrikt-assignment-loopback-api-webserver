@@ -1,33 +1,116 @@
-/* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
-@import url(https://fonts.googleapis.com/css?family=Lato:300,300italic,400,700,700italic);
-
-/**
- * Base Elements
- */
-
-* {
-  margin: 0;
-  padding: 0;
+:root {
+  --gray1: #181818;
+  --gray2: #1c1c1c;
+  --gray3: #313131;
+  --gray4: #5c5c5c;
+  --gray5: #949494;
+  --gray6: #adadad;
+  --offwhite: #f1f1f1;
+  --white: #ffffff;
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-div,
-span,
-a,
-button {
-  font-family: 'Lato', 'Open Sans', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+[data-bs-theme="dark"] {
+  background-color: var(--gray1) !important;
+  border-color: var(--gray3) !important;
 }
 
-body {
-  background: #f3f3f3;
+.shrink-0.text-primary svg path {
+  fill: var(--offwhite);
 }
 
-/* ...snip... */
+.btn {
+  font-size: 0.875rem;
+  font-weight: 300;
+  border-radius: 0.5rem;
+}
+
+.btn:hover {
+  background-color: var(--gray3) !important;
+}
+
+.btn-gray1 {
+  background-color: var(--gray1) !important;
+  border-color: var(--gray1) !important;
+  color: var(--offwhite) !important;
+}
+
+.btn-gray2 {
+  background-color: var(--gray2) !important;
+  border-color: var(--gray2) !important;
+  color: var(--offwhite) !important;
+}
+
+.btn-gray4 {
+  background-color: var(--gray4) !important;
+  border-color: var(--gray4) !important;
+  color: var(--white) !important;
+}
+
+.dropdown-menu {
+  background-color: var(--gray1);
+}
+
+.form-control {
+  background-color: var(--gray1) !important;
+  border-color: var(--gray5) !important;
+  font-size: 0.875rem;
+  font-weight: 300;
+  border-radius: 0.5rem;
+}
+
+.form-control::placeholder {
+  color: var(--gray5) !important;
+}
+
+.form-check-input {
+  background-color: var(--gray1) !important;
+}
+
+.form-check-control {
+  font-size: 0.875rem;
+}
+
+.table-dark {
+  border-color: var(--gray3) !important;
+}
+
+td {
+  background-color: var(--gray1) !important;
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+  background-color: var(--gray1) !important;
+  border-color: var(--gray1) !important;
+  color: var(--offwhite) !important;
+}
+
+.navbar {
+  background-color: var(--gray1) !important;
+  border-bottom: 0.5px solid var(--gray1) !important;
+}
+
+.navbar-btn {
+  background-color: var(--gray1) !important;
+  border-color: var(--gray1) !important;
+  color: var(--gray5) !important;
+}
+
+.navbar-dropdown-menu {
+  background-color: var(--gray1);
+}
+
+.offcanvas-btn {
+  height: 40px;
+  background-color: var(--gray1) !important;
+  border-color: var(--gray1) !important;
+  color: var(--offwhite) !important;
+}
+
+.card,
+.card-header {
+  background-color: var(--gray2) !important;
+  border-color: var(--gray4) !important;
+  color: var(--offwhite) !important;
+}
